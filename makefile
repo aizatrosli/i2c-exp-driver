@@ -19,7 +19,7 @@ CFLAGS := -g -fPIC # -Wall
 INC := $(shell find $(INCDIR) -maxdepth 1 -type d -exec echo -I {}  \;)
 
 
-PYLIBDIR := lib/python$(PYTHON_VERSION)
+PYLIBDIR := lib#/python$(PYTHON_VERSION)
 PYINC := "-I/usr/include/python$(PYTHON_VERSION)"
 INC += $(PYINC)
 
