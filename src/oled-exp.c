@@ -588,6 +588,7 @@ int oledReadLcdFile(char* file, uint8_t *buffer)
 	idx 	= 0;
 	while ( fscanf(fp, OLED_EXP_READ_LCD_STRING_OPT1, &val) > 0 ) {
 		buffer[idx]	= (uint8_t)val;
+		onionPrint(ONION_SEVERITY_DEBUG_EXTRA, "BUFFER val : %d\n", buffer)
 		idx++;
 	}
 

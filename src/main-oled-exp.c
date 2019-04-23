@@ -153,6 +153,17 @@ int oledCommand(char *command, char *param)
 			free(buffer);
 		}
 	}
+	else if (strcmp(command, "animate") == 0) {
+		buffer = malloc(OLED_EXP_WIDTH*OLED_EXP_HEIGHT/8 * sizeof *buffer);
+		memset(buffer, 0, OLED_EXP_WIDTH*OLED_EXP_HEIGHT/8 * sizeof *buffer);
+		status = oledReadLcdFile(param, buffer);
+
+		if (status == EXIT_SUCCESS) {
+			status = oledDraw(buffer, OLED_EXP_WIDTH*OLED_EXP_HEIGHT/8);
+		}		
+
+
+	}
 	else if (strcmp(command, "scroll") == 0 ) {
 		// interpret the parameters
 		val0 		= -1;
